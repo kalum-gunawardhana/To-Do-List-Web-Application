@@ -1,6 +1,9 @@
 let taskArray = [];
 let num = 1;
 
+let date = new Date();
+// console.log(new Date());
+document.getElementById("dateID").innerHTML = date;
 
 function AddTask() {
     let taskID = document.getElementById("taskID").value;
@@ -14,11 +17,11 @@ function AddTask() {
 function deleteTask(index) {
     console.log(index);
 
-    taskArray.splice(index-1, 1);
+    taskArray.splice(index - 1, 1);
     view();
 }
 
-function view(){
+function view() {
     let body = "";
     let index = 0;
     taskArray.forEach(element => {
@@ -36,3 +39,5 @@ function view(){
 
     document.getElementById("taskID").value = "";
 }
+
+

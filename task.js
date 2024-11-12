@@ -8,17 +8,31 @@ function AddTask() {
     taskArray.push({ no: num++, task: taskID, status: "Finished" },);
     // console.log(taskArray);
 
-    let body = "";
+    view();
+}
 
+function deleteTask(index) {
+    console.log(index);
+
+    taskArray.splice(index-1, 1);
+    view();
+}
+
+function view(){
+    let body = "";
+    let index = 0;
     taskArray.forEach(element => {
         body += `
-        <tr>
+        <tr id="${++index}">
             <td>${element.no}</td>
             <td>${element.task}</td>
             <td>${element.status}</td>
+            <td><input type="checkbox" name="" id="${"C" + index}" onchange="deleteTask(${index})"></td>
          </tr>
         `;
     });
 
     document.getElementById("trID").innerHTML = body;
+
+    document.getElementById("taskID").value = "";
 }
